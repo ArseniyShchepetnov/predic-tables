@@ -22,6 +22,19 @@ class IdentityTransform(TransformBase):
         return data
 
 
+class Pipeline(TransformBase):
+    """Pipelines implementation."""
+
+    def __init__(self, *transforms: TransformBase):
+        self.transforms = transforms
+
+    def __call__(self, data: pd.DataFrame) -> pd.DataFrame:
+        """Apply transforms."""
+        for transform in self.transforms:
+            data = transform(data)
+        return data
+
+
 class Schema(metaclass=abc.ABCMeta):
     """Columns and schema."""
 

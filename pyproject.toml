@@ -1,0 +1,88 @@
+[tool.poetry]
+name = "predictables"
+version = "0.1.0"
+description = ""
+authors = ["Arseniy Shchepetnov <arseniy@getintently.ai>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+pandera = "^0.20.4"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.7"
+mypy = "^1.11.2"
+isort = "^5.13.2"
+pytest = "^8.3.3"
+black = "^24.8.0"
+pandas-stubs = "^2.2.2.240909"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 79
+
+[tool.ruff]
+target-version = "py310"
+line-length = 79
+select = [
+    "F",
+    "E",
+    "W",
+    "I",
+    "N",
+    "D",
+    "UP",
+    "YTT",
+    "ANN",
+    "S",
+    "BLE",
+    "FBT",
+    "B",
+    "A",
+    "C4",
+    "DTZ",
+    "T10",
+    "ICN",
+    "INP",
+    "PIE",
+    "T20",
+    "PT",
+    "Q",
+    "RSE",
+    "RET",
+    "SLF",
+    "SIM",
+    "TCH",
+    "ARG",
+    "PTH",
+    "ERA",
+    "PL",
+    "TRY",
+    "RUF",
+]
+
+lint.ignore = [
+    "ANN101",
+    "ANN102",
+    "ANN002",
+    "ANN003",
+    "D107",
+    "FBT001",
+    "D203",
+    "D213",
+]
+lint.pycodestyle.max-doc-length = 79
+lint.pylint.max-args = 6
+
+[tool.ruff.lint.flake8-annotations]
+suppress-none-returning = true
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/**" = ["S101"]

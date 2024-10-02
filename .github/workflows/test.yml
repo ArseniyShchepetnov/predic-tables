@@ -20,13 +20,13 @@ jobs:
           cache: "poetry"
       - run: poetry install
 
-      - name: Lint with pylint
+      - name: Lint with ruff
         run: |
-          poetry run pylint predictables --fail-under=10
+          poetry run ruff check predictables
 
-      - name: Lint with pylint tests
+      - name: Lint with ruff tests
         run: |
-          poetry run pylint tests --fail-under=10
+          poetry run ruff check tests
 
       - name: Mypy checking
         run: |

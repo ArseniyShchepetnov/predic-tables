@@ -1,6 +1,3 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
 name: Python application
 
 on:
@@ -23,21 +20,21 @@ jobs:
           cache: "poetry"
       - run: poetry install
 
-      - name: Lint with pylint
+      - name: Lint with ruff
         run: |
-          poetry run pylint nlnorm --fail-under=10
+          poetry run ruff check predictables --no-fix
 
-      - name: Lint with pylint tests
+      - name: Lint with ruff tests
         run: |
-          poetry run pylint test --fail-under=10
+          poetry run ruff check tests --no-fix
 
       - name: Mypy checking
         run: |
-          poetry run mypy nlnorm --install-types
+          poetry run mypy predictables --install-types
 
       - name: Mypy checking tests
         run: |
-          poetry run mypy test --install-types
+          poetry run mypy tests --install-types
 
       - name: Test with pytest
         run: |

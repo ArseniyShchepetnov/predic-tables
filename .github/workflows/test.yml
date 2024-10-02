@@ -22,11 +22,11 @@ jobs:
 
       - name: Lint with ruff
         run: |
-          poetry run ruff check predictables
+          poetry run ruff check predictables --no-fix
 
       - name: Lint with ruff tests
         run: |
-          poetry run ruff check tests
+          poetry run ruff check tests --no-fix
 
       - name: Mypy checking
         run: |

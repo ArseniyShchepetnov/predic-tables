@@ -681,6 +681,28 @@ doc = ["Sphinx (>=7)", "packaging", "sphinx-autodoc-typehints (>=1.2.0)", "sphin
 test = ["coverage[toml] (>=7)", "mypy (>=1.2.0)", "pytest (>=7)"]
 
 [[package]]
+name = "types-colorama"
+version = "0.4.15.20240311"
+description = "Typing stubs for colorama"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-colorama-0.4.15.20240311.tar.gz", hash = "sha256:a28e7f98d17d2b14fb9565d32388e419f4108f557a7d939a66319969b2b99c7a"},
+    {file = "types_colorama-0.4.15.20240311-py3-none-any.whl", hash = "sha256:6391de60ddc0db3f147e31ecb230006a6823e81e380862ffca1e4695c13a0b8e"},
+]
+
+[[package]]
+name = "types-openpyxl"
+version = "3.1.5.20240918"
+description = "Typing stubs for openpyxl"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-openpyxl-3.1.5.20240918.tar.gz", hash = "sha256:22a71a1b601ed8194e356e33e2bebb93dddc47915b410db14ace5a6b7b856955"},
+    {file = "types_openpyxl-3.1.5.20240918-py3-none-any.whl", hash = "sha256:e9bf3c6f7966d347a2514b48f889f272d58e9b22a762244f778a5d66aee2101e"},
+]
+
+[[package]]
 name = "types-pytz"
 version = "2024.2.0.20240913"
 description = "Typing stubs for pytz"
@@ -689,6 +711,17 @@ python-versions = ">=3.8"
 files = [
     {file = "types-pytz-2024.2.0.20240913.tar.gz", hash = "sha256:4433b5df4a6fc587bbed41716d86a5ba5d832b4378e506f40d34bc9c81df2c24"},
     {file = "types_pytz-2024.2.0.20240913-py3-none-any.whl", hash = "sha256:a1eebf57ebc6e127a99d2fa2ba0a88d2b173784ef9b3defcc2004ab6855a44df"},
+]
+
+[[package]]
+name = "types-pyyaml"
+version = "6.0.12.20240917"
+description = "Typing stubs for PyYAML"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-PyYAML-6.0.12.20240917.tar.gz", hash = "sha256:d1405a86f9576682234ef83bcb4e6fff7c9305c8b1fbad5e0bcd4f7dbdc9c587"},
+    {file = "types_PyYAML-6.0.12.20240917-py3-none-any.whl", hash = "sha256:392b267f1c0fe6022952462bf5d6523f31e37f6cea49b14cee7ad634b6301570"},
 ]
 
 [[package]]
@@ -810,4 +843,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d9f5650e0b95a8cb92092c11eddd93aca7906dabcd2af564583344b71591044b"
+content-hash = "b80162132a6847f45ea6bee0b7c427cbbf4876d9f0c4e3c0c6c1718acb55aab2"

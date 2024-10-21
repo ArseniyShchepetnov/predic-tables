@@ -13,7 +13,7 @@ pandera = "^0.20.4"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.7"
-mypy = "^1.11.2"
+mypy = "^1.12.1"
 isort = "^5.13.2"
 pytest = "^8.3.3"
 black = "^24.8.0"

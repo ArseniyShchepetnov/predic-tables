@@ -4,7 +4,8 @@ import pandas as pd
 import pandera as pa
 import pytest
 
-from predictables.base import PredicTable, Schema
+from predictables.base import Schema
+from predictables.predictable import PredicTable
 
 
 def test_default():
@@ -15,7 +16,7 @@ def test_default():
         column_a: str = "Column A"
         column_b: str = "Column B"
 
-        def schema(self) -> pa.DataFrameSchema:
+        def get_schema(self) -> pa.DataFrameSchema:
             """Return schema."""
             return pa.DataFrameSchema(
                 {
@@ -42,7 +43,7 @@ def test_wrong_schema_default():
         column_a: str = "Column A"
         column_b: str = "Column B"
 
-        def schema(self) -> pa.DataFrameSchema:
+        def get_schema(self) -> pa.DataFrameSchema:
             """Return schema."""
             return pa.DataFrameSchema(
                 {
@@ -71,7 +72,7 @@ def test_replace_generic_in_child():
         column_a: str = "Column A"
         column_b: str = "Column B"
 
-        def schema(self) -> pa.DataFrameSchema:
+        def get_schema(self) -> pa.DataFrameSchema:
             """Return schema."""
             return pa.DataFrameSchema(
                 {
@@ -87,9 +88,9 @@ def test_replace_generic_in_child():
 
         column_c: str = "Column C"
 
-        def schema(self) -> pa.DataFrameSchema:
+        def get_schema(self) -> pa.DataFrameSchema:
             """Return schema."""
-            parent = super().schema()
+            parent = super().get_schema()
             return parent.add_columns(
                 {
                     self.column_c: pa.Column(

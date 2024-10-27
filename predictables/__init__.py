@@ -3,7 +3,7 @@
 from predictables.base import (
     IdentityTransform,
     Pipeline,
-    PredicTable,
     Schema,
     TransformBase,
 )
+from predictables.predictable import PredicTable

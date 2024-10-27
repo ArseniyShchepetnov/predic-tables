@@ -4,7 +4,8 @@ import pandas as pd
 import pandera as pa
 import pytest
 
-from predictables.base import PredicTable, Schema
+from predictables.base import Schema
+from predictables.predictable import PredicTable
 
 
 def test_default():

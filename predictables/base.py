@@ -1,10 +1,11 @@
 """Main classes."""
 
 import abc
-from typing import Generic, Protocol, TypeVar
+from typing import Protocol
 
 import pandas as pd
 import pandera as pa
+from pydantic import BaseModel
 
 
 class TransformBase(Protocol):
@@ -35,40 +36,30 @@ class Pipeline(TransformBase):
         return data
 
 
-class Schema(metaclass=abc.ABCMeta):
+class Schema(BaseModel, metaclass=abc.ABCMeta):
     """Columns and schema."""
 
+    def schema_member_map(self) -> dict[str, str]:
+        """Get schema literals map to column names."""
+        columns = self.get_schema().columns
+        return {
+            lit: col
+            for lit, col in self.model_dump().items()
+            if col in columns
+        }
+
+    def get_schema_dtypes(self) -> dict[str, pa.DataType]:
+        """Get data types for each member."""
+        member_map = {v: k for k, v in self.schema_member_map().items()}
+        return {member_map[k]: v for k, v in self.get_schema().dtypes.items()}
+
     @abc.abstractmethod
-    def schema(self) -> pa.DataFrameSchema:
+    def get_schema(self) -> pa.DataFrameSchema:
         """Return schema."""
 
 
-SchemaType = TypeVar("SchemaType", bound=Schema)
+class TransformWithSchema(TransformBase):
+    """Transform with schema."""
 
-
-class PredicTable(Generic[SchemaType]):
-    """Data with fixed schema."""
-
-    def __init__(self, data: pd.DataFrame, schema: SchemaType) -> None:
-        data = schema.schema().validate(data)
-        self._data = data
+    def __init__(self, schema: Schema):
         self._schema = schema
-
-    @property
-    def data(self) -> pd.DataFrame:
-        """Get dataframe."""
-        return self._data
-
-    @property
-    def schema(self) -> pa.DataFrameSchema:
-        """Get schema."""
-        return self._schema.schema()
-
-    @property
-    def c(self) -> SchemaType:
-        """Get columns."""
-        return self._schema
-
-    def transform(self, pipeline: TransformBase) -> "PredicTable":
-        """Transform data."""
-        return self.__class__(pipeline(self.data), self.c)

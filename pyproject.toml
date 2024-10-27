@@ -8,7 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pandas = "^2.2.3"
-pandera = "^0.20.4"
+pandera = { extras = ["strategies"], version = "^0.20.4" }
+loguru = "^0.7.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,6 +23,13 @@ types-pyyaml = "^6.0.12.20240917"
 types-colorama = "^0.4.15.20240311"
 types-openpyxl = "^3.1.5.20240918"
 types-pygments = "^2.18.0.20240506"
+ipykernel = "^6.29.5"
+types-tqdm = "^4.66.0.20240417"
+
+
+[tool.poetry.group.gen.dependencies]
+ollama = "^0.3.3"
+llama-index = "^0.11.17"
 
 [build-system]
 requires = ["poetry-core"]

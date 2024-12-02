@@ -3393,13 +3393,13 @@ files = [
 
 [[package]]
 name = "types-openpyxl"
-version = "3.1.5.20241025"
+version = "3.1.5.20241126"
 description = "Typing stubs for openpyxl"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-openpyxl-3.1.5.20241025.tar.gz", hash = "sha256:16089ea33238877994f2740f7f12d60f937d8c670a7589fc6d5434561c960da3"},
-    {file = "types_openpyxl-3.1.5.20241025-py3-none-any.whl", hash = "sha256:6f0cd1fe7a0b488c1df53786e10aad4887c5f85eeb19e3ac288cc4083214050e"},
+    {file = "types_openpyxl-3.1.5.20241126-py3-none-any.whl", hash = "sha256:e50ad5c2dec2c92cca521abed5c039975226e8e76389f17ab0ef813595593fbe"},
+    {file = "types_openpyxl-3.1.5.20241126.tar.gz", hash = "sha256:f599afab19f87aa11672ee675346401d82a0dac71988df9a5411cdb1e7477377"},
 ]
 
 [[package]]
@@ -3749,4 +3749,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a8e844d7322c0a99cbefad7d4a499005e12a555e940c3b3ffca103334050644a"
+content-hash = "0e5880dc398c98ad60533157082ffb5cce4e3919ea084d81f3b47c3f35ec1e8d"

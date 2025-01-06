@@ -31,7 +31,7 @@ pre-commit = "^4.0.1"
 
 [tool.poetry.group.gen.dependencies]
 ollama = "^0.3.3"
-llama-index = "^0.11.17"
+llama-index = "^0.12.9"
 
 [build-system]
 requires = ["poetry-core"]
